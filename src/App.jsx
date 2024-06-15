@@ -1,10 +1,11 @@
 import './App.css'
 import CentralPortion from './components/central-portion/CentralPortion'
-import React from 'react';
 import Logo from './assets/logo/mtm-logo.jpg'; 
 
 
 export default function App() {
+
+  document.title = "MTM | Itinerary Manager"
 
   return (
     <>
