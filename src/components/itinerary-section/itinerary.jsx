@@ -53,8 +53,7 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
 
     function handleDelete(id) {
         
-        const newTaskArray = selectedTrip.tasks.map((task) => task.id !== id);
-
+        const newTaskArray = selectedTrip.tasks.filter((task) => task.id !== id);   
         selectedTrip.tasks = newTaskArray; 
         updateTasks(selectedTrip); 
 

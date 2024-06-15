@@ -21,8 +21,10 @@ export default function CentralPortion() {
         const newTripArray = trips; 
 
         const deletedArray = newTripArray.filter(trip=> trip.id !== tripToRemoveId); 
+        console.log(deletedArray); 
 
         setTrips(deletedArray)
+        setSelectedTripId("");
     }
 
     function selectTrip(id) {
@@ -33,11 +35,11 @@ export default function CentralPortion() {
 
     function updateTrips(updatedTrip) {
 
-        const newTripArray = trips;
-
-        newTripArray.map((trip) => trip.id == updatedTrip.id ? updatedTrip : trip)
+        const newTripArray = trips.map((trip) => trip.id == updatedTrip.id ? updatedTrip : trip)
 
         setTrips(newTripArray); 
+        console.log(trips);
+
 
         
     }

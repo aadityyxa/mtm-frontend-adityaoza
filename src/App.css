@@ -29,6 +29,10 @@ body{
 
 }
 
+input{
+  padding:4px;
+}
+
 h1{
   font-size:48px;
 }
