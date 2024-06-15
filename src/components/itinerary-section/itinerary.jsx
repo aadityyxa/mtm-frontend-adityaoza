@@ -7,10 +7,14 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
 
     const [showForm, setShowForm] = useState(false)
     const [taskName, setTaskName] = useState(""); 
-    // const [showEditFrom, setShowEditForm] = useState(false); 
+    const [showEditForm, setShowEditForm] = useState(false); 
 
     function toggleForm() {
         setShowForm(prevShowForm => !prevShowForm)
+    }
+
+    function toggleEditForm() {
+        setShowEditForm(prevShowEditForm => !prevShowEditForm)
     }
 
     const selectedTrip = trips.find((trip) => { if(trip.id == selectedTripId) return trip}); 
@@ -25,12 +29,33 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
         updateTasks(selectedTrip)
     }
 
-
-
     function handleSubmit(e) {
         e.preventDefault(); 
         addTask(selectedTripId, taskName)
         setShowForm(false);
+
+    }
+
+    function handleEdit(e, id) {
+        e.preventDefault(); 
+
+        const newTask = {taskTitle:taskName, id: id}
+        console.log(newTask);
+
+        const newTaskArray = selectedTrip.tasks.map((task) => task.id === id ? newTask : task);
+        selectedTrip.tasks = newTaskArray;
+        console.log(selectedTrip); 
+        updateTasks(selectedTrip); 
+
+
+    }
+
+    function handleDelete(id) {
+        
+        const newTaskArray = selectedTrip.tasks.map((task) => task.id !== id);
+
+        selectedTrip.tasks = newTaskArray; 
+        updateTasks(selectedTrip); 
 
     }
 
@@ -56,8 +81,21 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
                 {selectedTrip.tasks.length > 0 && selectedTrip.tasks.map((task) => {
                     return <li key={task.id} className='task-card'>
                                 <h3>{task.taskTitle}</h3>
-                                <button className="task-button">Edit Task</button>
-                                <button className="task-button">Delete Task</button>
+                                <button className="task-button" onClick={toggleEditForm}>Edit Task</button>
+
+                                {
+                                    showEditForm && 
+                                    <form onSubmit={(e) => {handleEdit(e, task.id)}} className='edit-task-form'>
+                                        <div className="form-item">
+                                            <label htmlFor="name">Edit Task:</label>
+                                            <input type="text" name="name" id="name" value={taskName} onChange={(e) => {setTaskName(e.target.value)}}/>
+                                        </div>
+
+                                        <button type='submit'>Submit</button>
+                            
+                                    </form>
+                                }
+                                <button className="task-button" onClick={() => handleDelete(task.id)}>Delete Task</button>
                             </li>
                 })}
             </ul>

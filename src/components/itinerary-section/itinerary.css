@@ -34,6 +34,23 @@
 
 }
 
+.edit-task-form {
+    position: absolute;
+    border: 1px solid black;
+    right: 18px;
+    padding: 20px;
+
+}
+
+.edit-task-form label {
+    padding-right: 4px;
+}
+
+.edit-task-form button {
+    border: none;
+    padding: 6px 8px;
+}
+
 
 .add-tasks-button{
     border:none;
