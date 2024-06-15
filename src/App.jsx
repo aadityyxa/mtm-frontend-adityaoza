@@ -1,5 +1,8 @@
 import './App.css'
 import CentralPortion from './components/central-portion/CentralPortion'
+import React from 'react';
+import Logo from './assets/logo/mtm-logo.jpg'; 
+
 
 export default function App() {
 
@@ -7,7 +10,11 @@ export default function App() {
     <>
     <div className="homepage">
         <div className="navbar">
-          <h1>my trip mates </h1>
+          <div className="logo">
+          <img src={Logo} alt="" className='logo-image' />
+            <h1>my trip mates </h1>
+          </div>
+          
           <h3>itinerary manager</h3>
       </div>
 

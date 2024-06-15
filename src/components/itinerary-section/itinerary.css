@@ -31,14 +31,17 @@
     border:1px solid black; 
     right:18px;
     padding:20px;
+    background:white;
 
 }
 
 .edit-task-form {
     position: absolute;
     border: 1px solid black;
+    background:white;
     right: 18px;
     padding: 20px;
+    top:22%;
 
 }
 
