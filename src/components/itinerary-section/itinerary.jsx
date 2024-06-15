@@ -46,6 +46,7 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
         selectedTrip.tasks = newTaskArray;
         console.log(selectedTrip); 
         updateTasks(selectedTrip); 
+        setShowEditForm(false);
 
 
     }

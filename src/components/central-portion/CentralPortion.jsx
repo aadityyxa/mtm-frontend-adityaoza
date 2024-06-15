@@ -39,8 +39,6 @@ export default function CentralPortion() {
 
         setTrips(newTripArray); 
 
-        console.log(trips);
-
         
     }
 
