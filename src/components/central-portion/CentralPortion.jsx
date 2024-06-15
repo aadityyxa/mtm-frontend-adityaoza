@@ -11,9 +11,7 @@ export default function CentralPortion() {
     function addTrip(trip) {
         const newTripArray = trips; 
         newTripArray.push(trip); 
-        // console.log(trip.id);
         console.log(trips);
-
         setTrips(newTripArray); 
 
     }
@@ -30,6 +28,20 @@ export default function CentralPortion() {
     function selectTrip(id) {
         console.log(id);
         setSelectedTripId(id);
+
+    }
+
+    function updateTrips(updatedTrip) {
+
+        const newTripArray = trips;
+
+        newTripArray.map((trip) => trip.id == updatedTrip.id ? updatedTrip : trip)
+
+        setTrips(newTripArray); 
+
+        console.log(trips);
+
+        
     }
 
 
@@ -44,7 +56,7 @@ export default function CentralPortion() {
 
                 <div className="itinerary-section">
 
-                {selectedTripId !== "" && <Itinerary trips={trips} selectedTripId={selectedTripId} updateTrips={setTrips} />}
+                {selectedTripId !== "" && <Itinerary trips={trips} selectedTripId={selectedTripId} updateTasks={updateTrips} />}
             </div>
 
             </div>

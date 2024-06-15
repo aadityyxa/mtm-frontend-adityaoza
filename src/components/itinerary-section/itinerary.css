@@ -1,17 +1,24 @@
 .itinerary-section{
     grid-column:2/3;
-    padding:18px 0px;
+    padding:18px;
 }
 
 .grid{
     width:100%;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    list-style-type:none; 
+    /* list-style-type:none;  */
     gap:24px;  
     width:100%;
+    margin:18px;
     
 }
+
+.grid-header{
+    display:flex; 
+    justify-content: space-between;
+}
+
 
 .day-section{
     padding:18px;
@@ -19,16 +26,54 @@
     list-style-type:none; 
 }
 
+.add-task-form{
+    position:absolute; 
+    border:1px solid black; 
+    right:18px;
+    padding:20px;
+
+}
+
 
 .add-tasks-button{
     border:none;
     padding:4px 8px;
     cursor:pointer;
-    font-size:9px;
+    font-size:16px;
 }
 
-.add-task-form{
-    display:flex; 
-    flex-direction:column;
-    gap:8px;
+.add-task-form label{
+    padding-right:4px;
+}
+
+.add-task-form button{
+    border:none; 
+    padding:6px 8px; 
+}
+
+.task-card{
+    padding:12px; 
+
+}
+
+.task-card h5{
+    padding-bottom:8px; 
+}
+
+.task-card:hover{
+    background-color:rgba(0,0,0,0.2);
+}
+
+.task-button{
+    padding:4px 8px;
+    border:none; 
+    margin:4px;
+    cursor:pointer;
+
+
+}
+
+@font-face {
+    font-family: Fredoka One;
+    src: url("./assets/fonts/fredoka-one/FredokaOne-Regular.ttf");
 }

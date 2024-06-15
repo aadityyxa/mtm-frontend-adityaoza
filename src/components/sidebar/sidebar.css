@@ -5,8 +5,8 @@
     padding:24px;
     font-family:Fredoka One;
     list-style: none;
-    max-width:100%;
-    margin-right:50px;
+    /* margin-right:50px; */
+    height:100%;
 }
 
 
@@ -26,8 +26,8 @@
 
 .add-trip-form{
     position:absolute; 
-    height: 150px; 
-    width:200px; 
+    height: 200px; 
+    width:220px; 
     padding:24px; 
     background:white; 
     top:175px;

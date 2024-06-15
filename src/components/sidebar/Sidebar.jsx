@@ -10,7 +10,7 @@ import {v4 as uuid} from 'uuid';
 export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
 
     const [showForm, setShowForm] = useState(false);
-    const [name, setName] = useState(""); 
+    const [destination, setDestination] = useState(""); 
     const [duration, setDuration] = useState(1);
 
     function toggleForm() {
@@ -19,11 +19,8 @@ export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const days = [];
-        for(let i = 0; i < duration; i++) {
-            days.push({id: uuid(), tasks: []});
-        }
-        addTrip({name, duration,days, id: uuid()})
+        const tasks = [];
+        addTrip({destination, duration,tasks, id: uuid()})
         setShowForm(false);
     }
 
@@ -40,12 +37,12 @@ export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
                         {showForm && 
                         <form onSubmit={handleSubmit} className='add-trip-form' >
                             <div className="form-item">
-                                <label htmlFor="name">Trip Name</label>
-                                <input type="text" name="name" id="name" value={name} onChange={(e) => {setName(e.target.value)}}/>
+                                <label htmlFor="name">Destination</label>
+                                <input type="text" name="name" id="name " value={destination} onChange={(e) => {setDestination(e.target.value)}}/>
                             </div>
 
                             <div className="form-item">
-                                <label htmlFor="duration">Trip Duration</label>
+                                <label htmlFor="duration">Duration (in days) </label>
                                 <input type="number" name="duration" id="duration" min='1' value={duration} onChange={(e) => {setDuration(e.target.value)}}/>
                             </div>
 
@@ -60,7 +57,7 @@ export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
                             return <li key={trip.id} className='trip-item'>
                                         <p onClick={() => {
                                             console.log(trip.id)
-                                            selectTrip(trip.id)}}>{trip.name}</p>
+                                            selectTrip(trip.id)}}>{trip.destination}</p>
                                         <Icon path={mdiTrashCanOutline} size={1} onClick={() => {handleRemove(trip.id)}} />
                                     </li>
                         })}

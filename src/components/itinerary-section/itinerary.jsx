@@ -3,76 +3,66 @@ import { useState } from 'react';
 import './itinerary.css'; 
 import PropTypes from 'prop-types'; 
 
-export default function Itinerary({trips, selectedTripId, updateTrips}) {
+export default function Itinerary({trips, selectedTripId, updateTasks}) {
 
     const [showForm, setShowForm] = useState(false)
     const [taskName, setTaskName] = useState(""); 
+    // const [showEditFrom, setShowEditForm] = useState(false); 
 
     function toggleForm() {
         setShowForm(prevShowForm => !prevShowForm)
     }
 
-    const selectedTrip = trips.filter((trip) => { if(trip.id == selectedTripId) return trip}); 
+    const selectedTrip = trips.find((trip) => { if(trip.id == selectedTripId) return trip}); 
+    
+    const duration = selectedTrip.duration;
+    const destination = selectedTrip.destination;
 
-    const days = selectedTrip[0].days;
-    console.log(days); 
+    function addTask(selectedTripId, task ) {
 
-    const addTaskToDay = (tripId, dayId, newTask) => {
-        const updatedTrips = trips.map(trip => {
-            if (trip.id === tripId) {
-                return {
-                ...trip,
-                days: trip.days.map(day => {
-                    if (day.id === dayId) {
-                        return {
-                            ...day,
-                            tasks: [...day.tasks, newTask] 
-                        };
-                    }
-                return day;
-            })
-            };
-      }
-      return trip;
-    });
+        selectedTrip.tasks.push({taskTitle: task, id:uuid()});
 
-    // Update the state with the modified trips array
-    updateTrips(updatedTrips);
-  };
+        updateTasks(selectedTrip)
+    }
 
 
 
     function handleSubmit(e) {
         e.preventDefault(); 
-        addTaskToDay(taskName, uuid()); 
+        addTask(selectedTripId, taskName)
         setShowForm(false);
 
     }
 
 
     return(
-        <div className="itinerary">
-        <ul className='grid'>
-            {days.map((day) => {
-                return <li key={day.id} className='day-section'>
-                            <div className="day-section-header">
-                                <h4>Day {(days.indexOf(day)) + 1}</h4>
+        <>
+            <div className="grid-header">
+                                <h3>{duration} Day {destination} Trip </h3>
                                 <button onClick={toggleForm} className='add-tasks-button'>+  Add Task </button>
-                            </div>
+            </div>
                         {showForm && 
-                        <form onSubmit={(e) => {handleSubmit(e, selectedTripId, day.id)}} className='add-task-form'>
+                        <form onSubmit={(e) => {handleSubmit(e, selectedTripId,)}} className='add-task-form'>
                             <div className="form-item">
-                                <label htmlFor="name">Task Name</label>
+                                <label htmlFor="name">Task:</label>
                                 <input type="text" name="name" id="name" value={taskName} onChange={(e) => {setTaskName(e.target.value)}}/>
                             </div>
 
                             <button type='submit'>Submit</button>
                             
                         </form>}
-                        </li>
-            })}
-        </ul>
-        </div>
+                    
+            <ul className='grid'>
+                {selectedTrip.tasks.length > 0 && selectedTrip.tasks.map((task) => {
+                    return <li key={task.id} className='task-card'>
+                                <h3>{task.taskTitle}</h3>
+                                <button className="task-button">Edit Task</button>
+                                <button className="task-button">Delete Task</button>
+                            </li>
+                })}
+            </ul>
+
+        </>
 
     )
 }
@@ -82,5 +72,5 @@ export default function Itinerary({trips, selectedTripId, updateTrips}) {
 Itinerary.propTypes = {
     trips: PropTypes.array,
     selectedTripId: PropTypes.string,
-    updateTrips:PropTypes.func
+    updateTasks:PropTypes.func
 }
