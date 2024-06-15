@@ -52,11 +52,11 @@ export default function Itinerary({trips, selectedTripId, updateTrips}) {
 
     return(
         <div className="itinerary">
-        <ul>
+        <ul className='grid'>
             {days.map((day) => {
-                return <li key={day.id} className='day-section-'>
+                return <li key={day.id} className='day-section'>
                             <div className="day-section-header">
-                                <h3>Day {(days.indexOf(day)) + 1}</h3>
+                                <h4>Day {(days.indexOf(day)) + 1}</h4>
                                 <button onClick={toggleForm} className='add-tasks-button'>+  Add Task </button>
                             </div>
                         {showForm && 

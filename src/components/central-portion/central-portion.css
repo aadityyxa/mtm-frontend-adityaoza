@@ -1,7 +1,8 @@
 .central-portion{
-    /* height:100%; */
+    /* column-gap:24px; */
+    /* grid-column:1/3; */
     display:grid; 
     grid-template-columns: 1fr 3fr;
-    column-gap:24px;
+    flex-grow: 1;
 }
 

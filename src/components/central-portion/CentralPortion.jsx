@@ -42,7 +42,11 @@ export default function CentralPortion() {
 
                 <Sidebar trips={trips} addTrip={addTrip} removeTrip={removeTrip} selectTrip={selectTrip}/>
 
+                <div className="itinerary-section">
+
                 {selectedTripId !== "" && <Itinerary trips={trips} selectedTripId={selectedTripId} updateTrips={setTrips} />}
+            </div>
+
             </div>
     )
 }

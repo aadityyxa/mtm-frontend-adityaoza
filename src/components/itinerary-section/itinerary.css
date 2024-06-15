@@ -1,9 +1,15 @@
-.itinerary{
+.itinerary-section{
+    grid-column:2/3;
+    padding:18px 0px;
+}
+
+.grid{
+    width:100%;
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(1fr, 350px));
+    grid-template-columns: 1fr 1fr 1fr;
     list-style-type:none; 
-    gap:24px; 
-    grid-column:2/3; 
+    gap:24px;  
+    width:100%;
     
 }
 
@@ -13,17 +19,12 @@
     list-style-type:none; 
 }
 
-.day-section-header{
-    display:flex; 
-    justify-content: space-between;
-    align-items: center;
-    
-}
 
 .add-tasks-button{
     border:none;
     padding:4px 8px;
     cursor:pointer;
+    font-size:9px;
 }
 
 .add-task-form{

@@ -13,6 +13,8 @@ export default function App() {
 
       <CentralPortion />
 
+      <footer>github.com/aadityyxa/mtm-frontend-adityaoza</footer>
+
     </div>
 
     </>

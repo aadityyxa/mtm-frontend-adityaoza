@@ -1,9 +1,7 @@
 .sidebar{
-    grid-column:1/2;
     background:#ddd;
     color:black;
     list-style-type:none; 
-    height:100%;
     padding:24px;
     font-family:Fredoka One;
     list-style: none;
@@ -26,6 +24,23 @@
     cursor:pointer; 
 }
 
+.add-trip-form{
+    position:absolute; 
+    height: 150px; 
+    width:200px; 
+    padding:24px; 
+    background:white; 
+    top:175px;
+
+}
+
+.form-item{
+    padding-bottom:8px;
+}
+
+label{
+    padding-bottom:8px; 
+}
 .trip-item{
     display:grid; 
     grid-template-columns: 8fr 2fr;

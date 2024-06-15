@@ -38,14 +38,14 @@ export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
                         <h2>Your Trips</h2>
                         <button onClick={toggleForm} className='add-trips-button'>+  Add Trip </button>
                         {showForm && 
-                        <form onSubmit={handleSubmit} className='add-trip-form'>
+                        <form onSubmit={handleSubmit} className='add-trip-form' >
                             <div className="form-item">
                                 <label htmlFor="name">Trip Name</label>
                                 <input type="text" name="name" id="name" value={name} onChange={(e) => {setName(e.target.value)}}/>
                             </div>
 
                             <div className="form-item">
-                                <label htmlFor="duration"></label>
+                                <label htmlFor="duration">Trip Duration</label>
                                 <input type="number" name="duration" id="duration" min='1' value={duration} onChange={(e) => {setDuration(e.target.value)}}/>
                             </div>
 
