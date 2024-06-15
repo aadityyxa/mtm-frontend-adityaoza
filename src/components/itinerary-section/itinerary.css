@@ -1,0 +1,33 @@
+.itinerary{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(1fr, 350px));
+    list-style-type:none; 
+    gap:24px; 
+    grid-column:2/3; 
+    
+}
+
+.day-section{
+    padding:18px;
+    background:red;
+    list-style-type:none; 
+}
+
+.day-section-header{
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.add-tasks-button{
+    border:none;
+    padding:4px 8px;
+    cursor:pointer;
+}
+
+.add-task-form{
+    display:flex; 
+    flex-direction:column;
+    gap:8px;
+}

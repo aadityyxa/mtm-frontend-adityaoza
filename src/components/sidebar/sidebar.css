@@ -1,0 +1,44 @@
+.sidebar{
+    grid-column:1/2;
+    background:#ddd;
+    color:black;
+    list-style-type:none; 
+    height:100%;
+    padding:24px;
+    font-family:Fredoka One;
+    list-style: none;
+    max-width:100%;
+    margin-right:50px;
+}
+
+
+.sidebar-header{
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+    gap:24px;
+
+}
+
+.add-trips-button{
+    padding:8px 24px; 
+    border:none;
+    cursor:pointer; 
+}
+
+.trip-item{
+    display:grid; 
+    grid-template-columns: 8fr 2fr;
+    align-items: center;
+    width:80%;
+    padding:12px;
+    margin-top:4px;
+}
+
+.trip-item:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+        /*where 0.5 stands for 50% opacity*/
+    cursor:pointer;
+}
+
+
