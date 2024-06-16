@@ -19,6 +19,10 @@ export default function Sidebar({trips, addTrip, removeTrip, selectTrip}) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        if(destination == "") {
+            setShowForm(false); 
+            return;
+        }
         const tasks = [];
         addTrip({destination, duration,tasks, id: uuid()})
         setShowForm(false);
