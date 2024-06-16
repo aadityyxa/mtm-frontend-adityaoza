@@ -31,6 +31,12 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
 
     function handleSubmit(e) {
         e.preventDefault(); 
+
+        if(taskName == "") {
+            setShowForm(false); 
+            return;
+        }
+        
         addTask(selectedTripId, taskName)
         setShowForm(false);
 
@@ -38,6 +44,11 @@ export default function Itinerary({trips, selectedTripId, updateTasks}) {
 
     function handleEdit(e, id) {
         e.preventDefault(); 
+
+        if(taskName == "") {
+            setShowEditForm(false); 
+            return;
+        }
 
         const newTask = {taskTitle:taskName, id: id}
         console.log(newTask);
